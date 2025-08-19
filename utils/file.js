@@ -1,16 +1,25 @@
-const fs = require('fs');
-const filePath = require('../database.json');
+const fs = require("fs").promises;
+const filePath = "./database.json";
+
+async function readData() {
+  try {
+    const data = await fs.readFile(filePath, 'utf-8');
+    return JSON.parse(data);
+  } catch (err) {
+    throw new Error("Error reading data: " + err);
+  }
+}
 
 
-async function readData(data) {
-      try {
-          const data = await fs.readFile(filePath, JSON.stringify(data, null, 2));
-      } catch (error) {
-          throw Error('Error reading data: ' + error.message);
-      }
-      }
+async function writeData(data) {
+  try {
+    const data = await fs.writeFile(filePath, JSON.stringify(data, null, 2));
+  } catch (error) {
+    throw new Error("Error reading data: " + error.message);
+  }
+}
 
-      module.exports = {
-        readData,
-        writeData
-      };
+module.exports = {
+  readData,
+  writeData
+};
