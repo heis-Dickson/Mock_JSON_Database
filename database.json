@@ -1,19 +1,31 @@
 {
-    "users" : [
-        {
-        "id": 1,
-        "first_name": "john Doe",
-        "email": "john@example.com"
-        },
-            {
-        "id": 2,
-        "first_name": "john Doe",
-        "email": "john@example.com"
-        },
-            {
-        "id": 3,
-        "first_name": "john Doe",
-        "email": "john@example.com"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "first_name": "john Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 2,
+      "first_name": "john Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 3,
+      "first_name": "john Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "id": 6,
+      "username": "Mayor",
+      "first_name": "Mayor",
+      "email": "Mayor@gmail.com"
+    }
+  ]
 }
