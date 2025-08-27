@@ -6,11 +6,12 @@ const ejs = require('ejs')
 const PORT = process.env.PORT;
 const uri = process.env.MONGO_URI;
 const userRoutes = require('./routes/users.js');
+const authRoutes = require('./routes/auth.js');
 const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerJsDoc = YAML.load('./swagger.yaml');
 const rateLimit = require('express-rate-limit');
-
+const cookieParser = require('cookie-parser');
 
 
 app.set('views', './views');
@@ -28,10 +29,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerJsDoc));
 app.use(fixedWindowLimiter);
+app.use(cookieParser());
 
 app.use(userRoutes);
-
-
+app.use(authRoutes);
 
 mongoose.connect(uri).then(
 async ()=> {
